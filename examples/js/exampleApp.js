@@ -54,10 +54,10 @@
     ];
 
     data.fields = {
-      'test.number': { type: 'number', minimum: 650 },
-      'test.term': { type: 'term' },
-      'test.boolean': { type: 'term', subType: 'boolean' },
-      'test.state.multi': { type: 'multi', choices: [ 'AZ', 'CA', 'CT' ]}
+      'test.number': { label:"Some Number", type: 'number', minimum: 650 },
+      'test.term': { label:"Some Text", type: 'term' },
+      'test.boolean': { label:"Some Boolean", type: 'term', subType: 'boolean' },
+      'test.state.multi': { label:"States", type: 'multi', choices: [ 'AZ', 'CA', 'CT' ]}
     };
 
     data.needsUpdate = true;
