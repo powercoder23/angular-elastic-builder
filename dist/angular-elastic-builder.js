@@ -490,6 +490,11 @@
         obj.range[fieldName][group.subType] = group.value;
         break;
 
+      case 'text':
+        obj.query_string = {};
+        obj.query_string['query'] = group.value;
+        break;
+
       case 'date':
         if (group.subType === 'exists') {
           obj.exists = { field: fieldName };
@@ -508,6 +513,12 @@
 
           return prev;
         }, []);
+        break;
+
+      case 'select':
+        obj.terms = {};
+        obj.terms[fieldName] = group.value;
+
         break;
 
       default:
@@ -549,4 +560,5 @@ $templateCache.put("angular-elastic-builder/types/Boolean.html","<span class=\"b
 $templateCache.put("angular-elastic-builder/types/Date.html","<span class=\"date-rule\">\n  <select data-ng-model=\"rule.subType\" class=\"form-control\">\n\n    <optgroup label=\"Generic\">\n      <option value=\"exists\">Exists</option>\n      <option value=\"notExists\">! Exists</option>\n    </optgroup>\n  </select>\n\n</span>\n");
 $templateCache.put("angular-elastic-builder/types/Multi.html","<span class=\"multi-rule\">\n  <span data-ng-repeat=\"choice in guide.choices\">\n    <label class=\"checkbox\">\n      <input type=\"checkbox\" data-ng-model=\"rule.values[choice]\">\n      {{ choice }}\n    </label>\n  </span>\n</span>\n");
 $templateCache.put("angular-elastic-builder/types/Number.html","<span class=\"number-rule\">\n  <select data-ng-model=\"rule.subType\" class=\"form-control\">\n    <optgroup label=\"Numeral\">\n      <option value=\"equals\">=</option>\n      <option value=\"gt\">&gt;</option>\n      <option value=\"gte\">&ge;</option>\n      <option value=\"lt\">&lt;</option>\n      <option value=\"lte\">&le;</option>\n    </optgroup>\n\n    <optgroup label=\"Generic\">\n      <option value=\"exists\">Exists</option>\n      <option value=\"notExists\">! Exists</option>\n    </optgroup>\n  </select>\n\n  <!-- Range Fields -->\n  <input data-ng-if=\"inputNeeded()\"\n    class=\"form-control\"\n    data-ng-model=\"rule.value\"\n    type=\"number\"\n    min=\"{{ guide.minimum }}\"\n    max=\"{{ guide.maximum }}\">\n</span>\n");
+$templateCache.put("angular-elastic-builder/types/Select.html","<span class=\"select-rule\">\r\n 	<select data-ng-model=\"rule.value\" class=\"form-control\" ng-options=\"o for o in guide.choices\">\r\n	</select>\r\n</span>\r\n");
 $templateCache.put("angular-elastic-builder/types/Term.html","<span class=\"elastic-term\">\n  <select data-ng-model=\"rule.subType\" class=\"form-control\">\n    <!-- Term Options -->\n    <optgroup label=\"Text\">\n      <option value=\"equals\">Equals</option>\n      <option value=\"notEquals\">! Equals</option>\n    </optgroup>\n\n    <!-- Generic Options -->\n    <optgroup label=\"Generic\">\n      <option value=\"exists\">Exists</option>\n      <option value=\"notExists\">! Exists</option>\n    </optgroup>\n\n  </select>\n  <input\n    data-ng-if=\"inputNeeded()\"\n    class=\"form-control\"\n    data-ng-model=\"rule.value\"\n    type=\"text\">\n</span>\n");}]);})(window.angular);
