@@ -145,6 +145,11 @@
         obj.range[fieldName][group.subType] = group.value;
         break;
 
+      case 'text':
+        obj.query_string = {};
+        obj.query_string['query'] = group.value;
+        break;
+
       case 'date':
         if (group.subType === 'exists') {
           obj.exists = { field: fieldName };
@@ -163,6 +168,12 @@
 
           return prev;
         }, []);
+        break;
+
+      case 'select':
+        obj.terms = {};
+        obj.terms[fieldName] = group.value;
+
         break;
 
       default:
