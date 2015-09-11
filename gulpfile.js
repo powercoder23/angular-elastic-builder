@@ -13,6 +13,7 @@ var concat = require('gulp-concat')
 /**
  * Local Dependencies
  */
+var dev = require('./dev.json');
 var pkg = require('./package.json');
 var banner = ['/**'
   , ' * # <%= pkg.name %>'
@@ -35,6 +36,7 @@ gulp.task('default', ['uglify']);
 
 gulp.task('clean', function(done) {
   del('./dist', done);
+  //del(dev.projectDir);
 });
 
 gulp.task('concat', [ 'templatecache' ], function() {
@@ -70,7 +72,12 @@ gulp.task('templatecache', [ 'clean' ], function() {
     .pipe(gulp.dest('src/tmpl'));
 });
 
-gulp.task('watch', [ 'templatecache', 'build' ], function() {
-  gulp.watch('src/tmpl/**/*.html', [ 'templatecache', 'build' ]);
-  gulp.watch(['src/**/**.js','!src/tmpl/ElasticBuilderTemplates.js'], [ 'build' ]);
+gulp.task('copy', ['build'], function(){
+  return gulp.src('./dist/*.js')
+    .pipe(gulp.dest(dev.projectDir));
+});
+
+gulp.task('watch', [ 'templatecache', 'copy' ], function() {
+  gulp.watch('src/tmpl/**/*.html', [ 'templatecache', 'copy' ]);
+  gulp.watch(['src/**/**.js','!src/tmpl/ElasticBuilderTemplates.js'], [ 'copy' ]);
 });

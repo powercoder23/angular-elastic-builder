@@ -1,4 +1,5 @@
 <span class="select-rule">
- 	<select data-ng-model="rule.value" class="form-control" ng-options="choice.key as choice.label for choice in guide.choices">
+ 	<select data-ng-model="rule.value" class="form-control" 
+ 	data-ng-options="value.value as value.label | translate for value in guide.choices">
 	</select>
 </span>
