@@ -34,8 +34,8 @@
           };
 
           // This is a weird hack to make sure these are numbers
-          scope.booleans = [ 'False', 'True' ];
-          scope.booleansOrder = [ 'True', 'False' ];
+          scope.booleans = [ 'angularQueryBuilder.false', 'angularQueryBuilder.true' ];
+          scope.booleansOrder = [ 'angularQueryBuilder.true', 'angularQueryBuilder.false' ];
 
           scope.inputNeeded = function() {
             var needs = [

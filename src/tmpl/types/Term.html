@@ -1,15 +1,15 @@
 <span class="elastic-term">
   <select data-ng-model="rule.subType" class="form-control">
     <!-- Term Options -->
-    <optgroup label="Text">
-      <option value="equals">Equals</option>
-      <option value="notEquals">! Equals</option>
+    <optgroup label="{{'angularQueryBuilder.optGroupText' | translate}}">
+      <option value="equals">{{'angularQueryBuilder.equals' | translate}}</option>
+      <option value="notEquals">! {{'angularQueryBuilder.equals' | translate}}</option>
     </optgroup>
 
     <!-- Generic Options -->
-    <optgroup label="Generic">
-      <option value="exists">Exists</option>
-      <option value="notExists">! Exists</option>
+    <optgroup label="{{'angularQueryBuilder.optGroupGeneric' | translate}}">
+      <option value="exists">{{'angularQueryBuilder.exists' | translate}}</option>
+      <option value="notExists">! {{'angularQueryBuilder.exists' | translate}}</option>
     </optgroup>
 
   </select>

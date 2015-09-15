@@ -1,6 +1,6 @@
 <span class="number-rule">
   <select data-ng-model="rule.subType" class="form-control">
-    <optgroup label="Numeral">
+    <optgroup label="{{'angularQueryBuilder.optGroupNumeral' | translate}}">
       <option value="equals">=</option>
       <option value="gt">&gt;</option>
       <option value="gte">&ge;</option>
@@ -8,9 +8,9 @@
       <option value="lte">&le;</option>
     </optgroup>
 
-    <optgroup label="Generic">
-      <option value="exists">Exists</option>
-      <option value="notExists">! Exists</option>
+    <optgroup label="{{'angularQueryBuilder.optGroupGeneric' | translate}}">
+      <option value="exists">{{'angularQueryBuilder.exists' | translate}}</option>
+      <option value="notExists">! {{'angularQueryBuilder.exists' | translate}}</option>
     </optgroup>
   </select>
 

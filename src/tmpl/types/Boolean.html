@@ -1,10 +1,10 @@
 <span class="boolean-rule">
-  Equals
+  {{'angularQueryBuilder.equals' | translate}}
 
   <!-- This is a weird hack to make sure these are numbers -->
   <select
     data-ng-model="rule.value"
     class="form-control"
-    data-ng-options="booleans.indexOf(choice) as choice for choice in booleansOrder">
+    data-ng-options="booleans.indexOf(choice) as choice | translate for choice in booleansOrder">
   </select>
 </span>

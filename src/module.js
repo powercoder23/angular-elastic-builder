@@ -11,6 +11,7 @@
 
   angular.module('angular-elastic-builder', [
     'RecursionHelper',
+    'pascalprecht.translate'
   ]);
 
 })(window.angular);
