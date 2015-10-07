@@ -171,8 +171,8 @@
         break;
 
       case 'select':
-        obj.terms = {};
-        obj.terms[fieldName] = group.value;
+        obj.term = {};
+        obj.term[fieldName] = group.value;
 
         break;
 

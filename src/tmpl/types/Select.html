@@ -1,5 +1,5 @@
 <span class="select-rule">
- 	<select data-ng-model="rule.value" class="form-control" 
- 	data-ng-options="value.value as value.label | translate for value in guide.choices">
+ 	<select data-ng-model="rule.value" class="form-control" style="max-width:100% !important" 
+ 	data-ng-options="value.value as value.label | translate disable when value.disabled == 'true' for value in guide.choices | orderBy:['-disabled','label']">
 	</select>
 </span>

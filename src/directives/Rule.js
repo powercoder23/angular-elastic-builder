@@ -9,6 +9,16 @@
 
   var app = angular.module('angular-elastic-builder');
 
+  app.filter("toArray", function(){
+    return function(obj) {
+      var result = [];
+      angular.forEach(obj, function(val, key) {
+        result.push(val);
+      });
+      return result;
+    };
+  });
+
   app.directive('elasticBuilderRule', [
 
     function elasticBuilderRule() {
@@ -25,7 +35,7 @@
           scope.getType = function() {
             var fields = scope.elasticFields
               , field = scope.rule.field;
-
+              
             if (! fields || ! field) return;
 
             if (fields[field].subType === 'boolean') return 'boolean';
