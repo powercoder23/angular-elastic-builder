@@ -1,6 +1,8 @@
 <div class="elastic-builder-rule">
+  <!--select ng-if="elasticBuilderSortableSelect" class="form-control" style="max-width:100%" data-ng-model="rule.field" 
+  data-ng-options="value.key as value.label | translate for (key, value) in elasticFields | toArray | orderBy:'label'"></select-->
   <select class="form-control" style="max-width:100%" data-ng-model="rule.field" 
-  data-ng-options="value.key as value.label | translate for (key, value) in elasticFields | toArray | orderBy:'label'"></select>
+  data-ng-options="value.key as value.label | translate for (key, value) in elasticFields"></select>
 
   <span data-elastic-type="getType()" data-rule="rule" data-guide="elasticFields[rule.field]"></span>
 
