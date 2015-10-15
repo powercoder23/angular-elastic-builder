@@ -14,15 +14,15 @@
     data-on-remove="removeChild($index)"></div>
 
   <div class="list-group-item actions" data-ng-class="getGroupClassName()">
-    <a class="btn btn-xs btn-primary" title="{{'angularQueryBuilder.addSubRule' | translate}}" data-ng-click="addRule()">
-      <i class="fa fa-plus"></i>
+    <a class="btn btn-xs btn-primary" title="{{'angularQueryBuilder.addFilter' | translate}}" data-ng-click="addRule()">
+      <i class="fa fa-plus"></i> {{'angularQueryBuilder.addFilter' | translate}}
     </a>
-    <a class="btn btn-xs btn-primary" title="{{'angularQueryBuilder.subSubGroup' | translate}}" data-ng-click="addGroup()">
-      <i class="fa fa-list"></i>
+    <a class="btn btn-xs btn-primary" title="{{'angularQueryBuilder.addGroup' | translate}}" data-ng-click="addGroup()">
+      <i class="fa fa-list"></i> {{'angularQueryBuilder.addGroup' | translate}}
     </a>
   </div>
 
-  <a class="btn btn-xs btn-danger remover" data-ng-click="onRemove()">
-    <i class="fa fa-minus"></i>
+  <a class="btn btn-xs btn-danger remover" title="{{'angularQueryBuilder.removeFilter' | translate}}" data-ng-click="onRemove()">
+    <i class="fa fa-minus"></i> {{'angularQueryBuilder.removeFilter' | translate}}
   </a>
 </div>
